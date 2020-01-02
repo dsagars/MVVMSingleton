@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MVVMTestWithAsingleCompany.ViewModel;
+
 
 namespace MVVMTestWithAsingleCompany.View
 {
@@ -22,7 +24,14 @@ namespace MVVMTestWithAsingleCompany.View
     {
         public AddEditUserControl()
         {
+            DataContext = new AddEditViewModel();
             InitializeComponent();
+            
+        }
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+          
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using MVVMTestWithAsingleCompany.Model;
 using System.Windows.Input;
+using MVVMTestWithAsingleCompany.View;
 
 namespace MVVMTestWithAsingleCompany.ViewModel
 {
@@ -41,6 +42,7 @@ namespace MVVMTestWithAsingleCompany.ViewModel
 
         public AddEditViewModel()
         {
+            
             SaveCommand = new Command(executeSave, canExecuteSave);
         }
         private bool canExecuteSave(object arg)
@@ -50,9 +52,8 @@ namespace MVVMTestWithAsingleCompany.ViewModel
 
         private void executeSave(object obj)
         {
-            WindowService ws = new WindowService();
-            MainWindowViewModel dataViewModel = new MainWindowViewModel();
-            ws.ShowWindow<MainWindow>(dataViewModel);
+            Companies.Add(new Company() { Id = idTextBox, CompanyName = nameTxtBox.ToString() });
+            
         }
     }
 }
