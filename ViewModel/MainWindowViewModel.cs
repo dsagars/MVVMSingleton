@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MVVMTestWithAsingleCompany.Model;
+using MVVMTestWithAsingleCompany.View;
 namespace MVVMTestWithAsingleCompany.ViewModel
 {
     public class MainWindowViewModel : ViewModelBase
@@ -22,7 +23,7 @@ namespace MVVMTestWithAsingleCompany.ViewModel
             }
         }
        public ICommand DoubleClickCommand { get; private set; }
-        public static ObservableCollection<Company> Companies { get; set; }
+      
 
         public MainWindowViewModel()
         {
@@ -31,6 +32,7 @@ namespace MVVMTestWithAsingleCompany.ViewModel
             Companies.Add(new Company() { Id = 2, CompanyName = "haha" });
             Companies.Add(new Company() { Id = 3, CompanyName = "asads" });
             DoubleClickCommand = new Command(executeMethod, canExecuteMethod);
+            
         }
 
         private bool canExecuteMethod(object arg)
@@ -42,7 +44,8 @@ namespace MVVMTestWithAsingleCompany.ViewModel
         {
             WindowService ws = new WindowService();
             MainWindowViewModel dataViewModel = new MainWindowViewModel();
-            ws.ShowWindow<MainWindow>(dataViewModel);
-        }      
+            ws.ShowWindow<AddEdit>(dataViewModel);
+        }   
+        
     }
 }

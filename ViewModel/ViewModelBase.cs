@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MVVMTestWithAsingleCompany.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -8,8 +10,12 @@ using System.Threading.Tasks;
 
 namespace MVVMTestWithAsingleCompany.ViewModel
 {
+ 
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
+        public static ObservableCollection<Company> Companies { get; set; }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName]string propertyName = "")
         {
