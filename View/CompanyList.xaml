@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="MVVMTestWithAsingleCompany.View.CompanyList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid RenderTransformOrigin="0.499,0.596">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="397*"/>
+            <RowDefinition Height="53*"/>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="companyListView" ItemsSource="{Binding Companies, UpdateSourceTrigger=PropertyChanged}" MouseDoubleClick="ListViewItem_MouseDoubleClick" SelectedItem="{Binding Path= SelectedCompany, UpdateSourceTrigger=PropertyChanged}">
+            <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                    <Setter Property="Background" Value="BlanchedAlmond"/>
+                    <Setter Property="FontStyle" Value="Italic"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                </Style>
+            </ListView.Resources>
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem" >
+                    <Style.Triggers>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                            <Setter Property="Background" Value="Gray"/>
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                    <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="200"/>
+                    <GridViewColumn Header="CompanyName" DisplayMemberBinding="{Binding CompanyName}" Width="200"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Grid Margin="-1,0,0,0" RenderTransformOrigin="0.5,0.5" Background="Gray" Grid.Row="1">
+            <Button x:Name="Add" Content="Add" Width="80" Margin="679,-2,42,2"/>
+
+        </Grid>
+    </Grid>
+
+</UserControl>
