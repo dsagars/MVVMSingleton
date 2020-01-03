@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MVVMTestWithAsingleCompany.Model
 {
-    public class Company : INotifyPropertyChanged
+    public class CompanyModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

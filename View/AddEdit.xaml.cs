@@ -23,7 +23,7 @@ namespace MVVMTestWithAsingleCompany.View
         public AddEdit()
         {
             InitializeComponent();
-            DataContext = new AddEditViewModel();
+            //DataContext = new AddEditViewModel();
         }
     }
 }

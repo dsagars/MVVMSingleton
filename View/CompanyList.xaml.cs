@@ -29,7 +29,7 @@ namespace MVVMTestWithAsingleCompany.View
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             MainWindowViewModel vm = DataContext as MainWindowViewModel;
-            vm.DoubleClickCommand.Execute(DataContext);
+            vm.DoubleClickCommand.Execute(DataContext);          
         }
     }
 }

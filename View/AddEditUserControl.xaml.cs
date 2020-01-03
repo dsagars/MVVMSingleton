@@ -22,6 +22,7 @@ namespace MVVMTestWithAsingleCompany.View
     /// </summary>
     public partial class AddEditUserControl : UserControl
     {
+        
         public AddEditUserControl()
         {
             DataContext = new AddEditViewModel();
@@ -31,7 +32,11 @@ namespace MVVMTestWithAsingleCompany.View
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-          
+            AddEditViewModel addViewmodel = new AddEditViewModel(int.Parse(idTextBox.Text), nameTxtBox.Text);
+            MessageBox.Show("It hits");
+            DataContext = addViewmodel;
         }
+
+       
     }
 }

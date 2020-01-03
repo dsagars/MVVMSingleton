@@ -13,9 +13,8 @@ namespace MVVMTestWithAsingleCompany.ViewModel
  
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
-        public static ObservableCollection<Company> Companies { get; set; }
-
-
+        
+   
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName]string propertyName = "")
         {
@@ -24,5 +23,6 @@ namespace MVVMTestWithAsingleCompany.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+        
     }
 }

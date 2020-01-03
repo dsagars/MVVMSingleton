@@ -43,6 +43,12 @@ namespace MVVMTestWithAsingleCompany.ViewModel
         public AddEditViewModel()
         {
             
+           // SaveCommand = new Command(executeSave, canExecuteSave);
+        }
+        public AddEditViewModel(int id, string companyName)
+        {
+            this.idTextBox = id;
+            this.NameTextBox = companyName;
             SaveCommand = new Command(executeSave, canExecuteSave);
         }
         private bool canExecuteSave(object arg)
@@ -52,8 +58,10 @@ namespace MVVMTestWithAsingleCompany.ViewModel
 
         private void executeSave(object obj)
         {
-            Companies.Add(new Company() { Id = idTextBox, CompanyName = nameTxtBox.ToString() });
-            
+            CompanyModel company = new CompanyModel();
+            company.Id = idTextBox;
+            company.CompanyName = nameTxtBox;
+            MainWindowViewModel.Companies.Add(company);
         }
     }
 }

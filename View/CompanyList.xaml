@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vmb ="clr-namespace:MVVMTestWithAsingleCompany.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid RenderTransformOrigin="0.499,0.596">
@@ -11,7 +12,7 @@
             <RowDefinition Height="53*"/>
         </Grid.RowDefinitions>
 
-        <ListView x:Name="companyListView" ItemsSource="{Binding Companies, UpdateSourceTrigger=PropertyChanged}" MouseDoubleClick="ListViewItem_MouseDoubleClick" SelectedItem="{Binding Path= SelectedCompany, UpdateSourceTrigger=PropertyChanged}">
+        <ListView x:Name="companyListView" ItemsSource="{Binding Companies,UpdateSourceTrigger=PropertyChanged}" MouseDoubleClick="ListViewItem_MouseDoubleClick">
             <ListView.Resources>
                 <Style TargetType="{x:Type GridViewColumnHeader}">
                     <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -43,7 +44,7 @@
             </ListView.View>
         </ListView>
         <Grid Margin="-1,0,0,0" RenderTransformOrigin="0.5,0.5" Background="Gray" Grid.Row="1">
-            <Button x:Name="Add" Content="Add" Width="80" Margin="679,-2,42,2"/>
+            <Button x:Name="Add" Content="Add" Command="{Binding AddCommand}" Width="80" Margin="679,-2,42,2"/>
 
         </Grid>
     </Grid>

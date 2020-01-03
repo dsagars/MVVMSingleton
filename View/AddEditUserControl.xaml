@@ -6,12 +6,12 @@
              xmlns:local="clr-namespace:MVVMTestWithAsingleCompany.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
-    
-    <Grid>
+
+    <Grid DataContext="{Binding Companies,UpdateSourceTrigger=PropertyChanged}">
         <Label Content="ID" Margin="35,4,730,422"/>
         <Label Content="CompanyName" Margin="229,4,476,418"/>
-        <TextBox x:Name="idTextBox" Text="{Binding IdTxtbox, UpdateSourceTrigger=PropertyChanged}" Height="35" Margin="24,40,660,375"/>
+        <TextBox x:Name="idTextBox" Text="{Binding IdTxtbox, UpdateSourceTrigger=PropertyChanged , BindsDirectlyToSource=True}" Height="35" Margin="24,40,660,375"/>
         <TextBox x:Name="nameTxtBox" Text="{Binding NameTextBox, UpdateSourceTrigger=PropertyChanged}" Margin="225,38,459,372"/>
-        <Button x:Name="saveButton" Content="Save" Click="saveButton_Click"  Height="50" Width="100" Margin="126,189,574,211"/>
+        <Button x:Name="saveButton" Content="Save" Click="saveButton_Click" Command="{Binding SaveCommand, UpdateSourceTrigger=PropertyChanged}"  Height="50" Width="100" Margin="126,189,574,211"/>
     </Grid>
 </UserControl>
